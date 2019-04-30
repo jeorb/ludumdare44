@@ -22,10 +22,13 @@ struct GameWindow {
     hero: Glyph,
     pos: Vector,
     speed: Vector,
+    cooldown: usize,
 }
 
 struct Sprite {
     pos: Vector,
+    speed: Vector,
+    ttl: usize,
     glyph: String
 }
 
@@ -35,15 +38,15 @@ impl State for GameWindow {
         glyphs.load_from_svg_bytes(include_bytes!("../assets/glyphs.svg"));
 
         let mut sprites = Vec::new();
-        sprites.push(Sprite{ pos: Vector{x: 505.0, y: 400.0}, glyph: glyph::COIN.to_owned() });
 
         Ok(GameWindow{
             pos: Vector{x: 350.0, y: 250.0},
             speed: Vector{x: 0.0, y: 0.0},
             coin: glyphs.get(glyph::COIN).clone(),
-            hero: glyphs.get(glyph::COIN).clone(),
+            hero: glyphs.get(glyph::HERO).clone(),
             glyphs: glyphs,
             sprites: sprites,
+            cooldown: 0,
         })
     }
 
@@ -78,6 +81,26 @@ impl State for GameWindow {
         } else if self.pos.y < 0.0 {
             self.pos.y = 600.0;
         }
+
+        self.sprites.retain(|s| s.ttl > 0);
+
+        for sprite in &mut self.sprites {
+            sprite.ttl -= 1;
+            sprite.pos += sprite.speed;
+        }
+
+        if self.cooldown > 0 {
+            self.cooldown -= 1;
+        } else if input.shoot {
+            self.cooldown = 6;
+            self.sprites.push(Sprite{
+                pos: Vector{ x: self.pos.x, y: self.pos.y - 50.0 },
+                speed: Vector{ x: self.speed.x, y: self.speed.y - 20.0 },
+                ttl: 60,
+                glyph: glyph::COIN.to_owned()
+            });
+        }
+
         Ok(())
     }
 
@@ -85,8 +108,6 @@ impl State for GameWindow {
         window.clear(BG_COLOR)?;
 
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
-        window.draw_ex(&self.coin, Col(FG_COLOR), Transform::translate(self.pos*0.5), 0);
-        window.draw_ex(&self.coin, Col(FG_COLOR), Transform::translate(self.pos*1.5), 0);
 
         for sprite in &self.sprites {
             window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
