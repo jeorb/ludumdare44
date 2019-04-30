@@ -12,6 +12,11 @@ use quicksilver::{
 };
 use crate::path_convert::convert_path;
 
+pub const MISSING: &str = "missing";
+pub const COIN: &str = "coin";
+pub const HERO: &str = "hero";
+pub const ID_PREFIX: &str = "glyph_";
+
 
 pub struct Glyph {
     pub mesh: Mesh,
@@ -52,7 +57,7 @@ pub struct GlyphSet {
 impl GlyphSet {
     pub fn new() -> Result<GlyphSet> {
         let mut glyphs: HashMap<String, Glyph> = HashMap::new();
-        glyphs.insert("missing".to_owned(), Glyph{ mesh: Mesh::new() });
+        glyphs.insert(MISSING.to_owned(), Glyph{ mesh: Mesh::new() });
         Ok(GlyphSet{
             glyphs: glyphs,
         })
@@ -61,7 +66,7 @@ impl GlyphSet {
     pub fn get(&self, key: &str) -> &Glyph {
         match self.glyphs.get(key) {
             Some(glyph) => glyph,
-            None => self.glyphs.get("missing").unwrap(),
+            None => self.glyphs.get(MISSING).unwrap(),
         }
     }
 
@@ -76,7 +81,7 @@ impl GlyphSet {
             if let usvg::NodeKind::Group(ref g) = *node.borrow() {
                 let group = g.id.clone();
                 let group_len = group.chars().count();
-                if group.starts_with("glyph_") && group_len > 6{
+                if group.starts_with(ID_PREFIX) && group_len > 6{
                     let key: String = group.chars().skip(6).take(group_len-6).collect();
                     let mut mesh = Mesh::new();
                     let mut shape_renderer = ShapeRenderer::new(&mut mesh, color);

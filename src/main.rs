@@ -12,17 +12,21 @@ use quicksilver::{
     lifecycle::{Settings, State, Window, run},
 };
 
-
-
 const BG_COLOR: Color = Color{ r: 0.2, g: 0.1, b: 0.2, a: 1.0};
 const FG_COLOR: Color = Color{ r: 0.6, g: 0.2, b: 0.6, a: 1.0};
 
 struct GameWindow {
     glyphs: GlyphSet,
+    sprites: Vec<Sprite>,
     coin: Glyph,
     hero: Glyph,
     pos: Vector,
     speed: Vector,
+}
+
+struct Sprite {
+    pos: Vector,
+    glyph: String
 }
 
 impl State for GameWindow {
@@ -30,12 +34,16 @@ impl State for GameWindow {
         let mut glyphs = GlyphSet::new().unwrap();
         glyphs.load_from_svg_bytes(include_bytes!("../assets/glyphs.svg"));
 
+        let mut sprites = Vec::new();
+        sprites.push(Sprite{ pos: Vector{x: 505.0, y: 400.0}, glyph: glyph::COIN.to_owned() });
+
         Ok(GameWindow{
             pos: Vector{x: 350.0, y: 250.0},
             speed: Vector{x: 0.0, y: 0.0},
-            coin: glyphs.get("coin").clone(),
-            hero: glyphs.get("hero").clone(),
+            coin: glyphs.get(glyph::COIN).clone(),
+            hero: glyphs.get(glyph::COIN).clone(),
             glyphs: glyphs,
+            sprites: sprites,
         })
     }
 
@@ -79,6 +87,10 @@ impl State for GameWindow {
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
         window.draw_ex(&self.coin, Col(FG_COLOR), Transform::translate(self.pos*0.5), 0);
         window.draw_ex(&self.coin, Col(FG_COLOR), Transform::translate(self.pos*1.5), 0);
+
+        for sprite in &self.sprites {
+            window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
+        }
 
         Ok(())
     }
