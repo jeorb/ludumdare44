@@ -72,7 +72,7 @@ impl GlyphSet {
 
     pub fn load_from_svg_bytes(&mut self, bytes: &[u8]){
         let mut tessellator = FillTessellator::new();
-        let color: Color = Color{ r: 0.6, g: 0.2, b: 0.6, a: 1.0};
+        let default_color: Color = Color{ r: 0.6, g: 0.9, b: 0.6, a: 1.0};
 
         let mut svg_opt = usvg::Options::default();
         svg_opt.keep_named_groups = true;
@@ -84,7 +84,6 @@ impl GlyphSet {
                 if group.starts_with(ID_PREFIX) && group_len > 6{
                     let key: String = group.chars().skip(6).take(group_len-6).collect();
                     let mut mesh = Mesh::new();
-                    let mut shape_renderer = ShapeRenderer::new(&mut mesh, color);
                     let mut first = true;
                     for group_node in node.descendants() {
                         if let usvg::NodeKind::Path(ref p) = *group_node.borrow() {
@@ -93,6 +92,18 @@ impl GlyphSet {
                                 first = false;
                                 continue;
                             }
+                            let color = if let Some(ref fill) = p.fill {
+                                match fill.paint {
+                                    usvg::Paint::Color(col) =>  Color::from_rgba(
+                                        col.red,
+                                        col.green,
+                                        col.blue,
+                                        fill.opacity.value() as f32
+                                    ),
+                                    _ => default_color,
+                                }
+                            } else { default_color };
+                            let mut shape_renderer = ShapeRenderer::new(&mut mesh, color);
                             tessellator.tessellate_path(
                                 convert_path(p),
                                 &FillOptions::tolerance(0.1), &mut shape_renderer)

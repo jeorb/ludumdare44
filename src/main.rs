@@ -8,7 +8,7 @@ use glyph::{Glyph, GlyphSet};
 use quicksilver::{
     Result,
     geom::{Transform, Vector},
-    graphics::{Background::Col, Color},
+    graphics::{Background::Col, Color, ResizeStrategy},
     lifecycle::{Settings, State, Window, run},
 };
 
@@ -18,7 +18,6 @@ const FG_COLOR: Color = Color{ r: 0.6, g: 0.2, b: 0.6, a: 1.0};
 struct GameWindow {
     glyphs: GlyphSet,
     sprites: Vec<Sprite>,
-    coin: Glyph,
     hero: Glyph,
     pos: Vector,
     speed: Vector,
@@ -39,10 +38,16 @@ impl State for GameWindow {
 
         let mut sprites = Vec::new();
 
+        /*sprites.push(Sprite{
+                pos: Vector{ x: 0.0, y: 0.0 },
+                speed: Vector{ x: 0.1, y: 0.15 },
+                ttl: 1000,
+                glyph: "fake".to_owned()
+            });*/
+
         Ok(GameWindow{
             pos: Vector{x: 350.0, y: 250.0},
             speed: Vector{x: 0.0, y: 0.0},
-            coin: glyphs.get(glyph::COIN).clone(),
             hero: glyphs.get(glyph::HERO).clone(),
             glyphs: glyphs,
             sprites: sprites,
@@ -107,21 +112,35 @@ impl State for GameWindow {
     fn draw(&mut self, window: &mut Window) -> Result<()> {
         window.clear(BG_COLOR)?;
 
-        window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
-
         for sprite in &self.sprites {
             window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
         }
+
+        window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
 
         Ok(())
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+fn is_wasm() -> bool {
+    return false;
+}
+
+#[cfg(target_arch = "wasm32")]
+fn is_wasm() -> bool {
+    return true;
+}
+
 fn main() {
     //println!("Starting game...");
     let mut settings = Settings::default();
-    //settings.resize = ResizeStrategy::Fill;
-    //settings.fullscreen = true;
+    settings.resize = ResizeStrategy::Fill;
+    
+    if is_wasm(){
+        settings.fullscreen = true;
+    }
+
     //settings.vsync = true;
     settings.multisampling = Some(4);
 
