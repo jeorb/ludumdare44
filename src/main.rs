@@ -22,11 +22,15 @@ struct GameWindow {
     pos: Vector,
     speed: Vector,
     cooldown: usize,
+    mouse_pos: Vector,
+    mouse_cooldown: usize,
 }
 
 struct Sprite {
     pos: Vector,
     speed: Vector,
+    visible: bool,
+    use_ttl: bool,
     ttl: usize,
     glyph: String
 }
@@ -38,12 +42,14 @@ impl State for GameWindow {
 
         let mut sprites = Vec::new();
 
-        /*sprites.push(Sprite{
-                pos: Vector{ x: 0.0, y: 0.0 },
-                speed: Vector{ x: 0.1, y: 0.15 },
-                ttl: 1000,
+        sprites.push(Sprite{
+                pos: Vector{ x: -1000.0, y: -1000.0 },
+                speed: Vector{ x: 0.0, y: 0.0 },
+                visible: false,
+                use_ttl: false,
+                ttl: 1,
                 glyph: "fake".to_owned()
-            });*/
+            });
 
         Ok(GameWindow{
             pos: Vector{x: 350.0, y: 250.0},
@@ -52,6 +58,8 @@ impl State for GameWindow {
             glyphs: glyphs,
             sprites: sprites,
             cooldown: 0,
+            mouse_pos: Vector{ x: 0.0, y: 0.0 },
+            mouse_cooldown: 0,
         })
     }
 
@@ -87,7 +95,21 @@ impl State for GameWindow {
             self.pos.y = 600.0;
         }
 
-        self.sprites.retain(|s| s.ttl > 0);
+        let mouse = window.mouse().pos();
+        if mouse != self.mouse_pos {
+            self.mouse_pos = mouse;
+            self.mouse_cooldown = 60;
+            self.sprites[0].pos = Vector{ x: mouse.x-50.0, y: mouse.y - 50.0 };
+            self.sprites[0].visible = true;
+        } else {
+            if self.mouse_cooldown > 0 {
+                self.mouse_cooldown -= 1;
+            } else {
+                self.sprites[0].visible = false;
+            }
+        }
+
+        self.sprites.retain(|s| (!s.use_ttl) || s.ttl > 0);
 
         for sprite in &mut self.sprites {
             sprite.ttl -= 1;
@@ -101,6 +123,8 @@ impl State for GameWindow {
             self.sprites.push(Sprite{
                 pos: Vector{ x: self.pos.x, y: self.pos.y - 50.0 },
                 speed: Vector{ x: self.speed.x, y: self.speed.y - 20.0 },
+                visible: true,
+                use_ttl: true,
                 ttl: 60,
                 glyph: glyph::COIN.to_owned()
             });
@@ -113,7 +137,9 @@ impl State for GameWindow {
         window.clear(BG_COLOR)?;
 
         for sprite in &self.sprites {
-            window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
+            if sprite.visible {
+                window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
+            }
         }
 
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
