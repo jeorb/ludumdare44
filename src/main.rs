@@ -9,11 +9,14 @@ use quicksilver::{
     Result,
     geom::{Transform, Vector},
     graphics::{Background::Col, Color, ResizeStrategy},
+    input::{Key, ButtonState },
     lifecycle::{Settings, State, Window, run},
 };
 
 const BG_COLOR: Color = Color{ r: 0.2, g: 0.1, b: 0.2, a: 1.0};
 const FG_COLOR: Color = Color{ r: 0.6, g: 0.2, b: 0.6, a: 1.0};
+const WIDTH: f32 = 1000.0;
+const HEIGHT: f32 = 1000.0;
 
 struct GameWindow {
     glyphs: GlyphSet,
@@ -24,6 +27,7 @@ struct GameWindow {
     cooldown: usize,
     mouse_pos: Vector,
     mouse_cooldown: usize,
+    scale: Vector,
 }
 
 struct Sprite {
@@ -32,7 +36,9 @@ struct Sprite {
     visible: bool,
     use_ttl: bool,
     ttl: usize,
-    glyph: String
+    glyph: String,
+    scale: Vector,
+    z: f32,
 }
 
 impl State for GameWindow {
@@ -48,11 +54,13 @@ impl State for GameWindow {
                 visible: false,
                 use_ttl: false,
                 ttl: 1,
-                glyph: "fake".to_owned()
+                glyph: "cursor".to_owned(),
+                scale: Vector{x: 1.0, y: 1.0},
+                z: 10.0,
             });
 
         Ok(GameWindow{
-            pos: Vector{x: 350.0, y: 250.0},
+            pos: Vector{x: WIDTH/2.0, y: HEIGHT/2.0},
             speed: Vector{x: 0.0, y: 0.0},
             hero: glyphs.get(glyph::HERO).clone(),
             glyphs: glyphs,
@@ -60,6 +68,7 @@ impl State for GameWindow {
             cooldown: 0,
             mouse_pos: Vector{ x: 0.0, y: 0.0 },
             mouse_cooldown: 0,
+            scale: Vector{x: 1.0, y: 1.0},
         })
     }
 
@@ -74,6 +83,14 @@ impl State for GameWindow {
             }
         }
 
+        match window.keyboard()[Key::Tab] {
+            ButtonState::Pressed => {
+                println!("View:          {:?}", window.view());
+                println!("Screen Size:   {:?}", window.screen_size());
+            },
+            _ => ()
+        }
+
         let input = input::get_input(&window);
 
         self.speed.x += 2.5 * input.x;
@@ -84,22 +101,22 @@ impl State for GameWindow {
         }
 
         self.pos += self.speed;
-        if self.pos.x > 800.0 {
+        if self.pos.x > WIDTH {
             self.pos.x = 0.0;
         } else if self.pos.x < 0.0 {
-            self.pos.x = 800.0;
+            self.pos.x = WIDTH;
         }
-        if self.pos.y > 600.0 {
+        if self.pos.y > HEIGHT {
             self.pos.y = 0.0;
         } else if self.pos.y < 0.0 {
-            self.pos.y = 600.0;
+            self.pos.y = HEIGHT;
         }
 
         let mouse = window.mouse().pos();
         if mouse != self.mouse_pos {
             self.mouse_pos = mouse;
             self.mouse_cooldown = 60;
-            self.sprites[0].pos = Vector{ x: mouse.x-50.0, y: mouse.y - 50.0 };
+            self.sprites[0].pos = Vector{ x: mouse.x, y: mouse.y };
             self.sprites[0].visible = true;
         } else {
             if self.mouse_cooldown > 0 {
@@ -116,9 +133,11 @@ impl State for GameWindow {
             sprite.pos += sprite.speed;
         }
 
+
         if self.cooldown > 0 {
             self.cooldown -= 1;
         } else if input.shoot {
+            self.scale *= 0.99;
             self.cooldown = 6;
             self.sprites.push(Sprite{
                 pos: Vector{ x: self.pos.x, y: self.pos.y - 50.0 },
@@ -126,8 +145,14 @@ impl State for GameWindow {
                 visible: true,
                 use_ttl: true,
                 ttl: 60,
-                glyph: glyph::COIN.to_owned()
+                glyph: glyph::COIN.to_owned(),
+                scale: self.scale,
+                z: 1.0,
             });
+        } else {
+            if self.scale.y < 1.0 {
+                self.scale *= 1.001;
+            }
         }
 
         Ok(())
@@ -138,11 +163,11 @@ impl State for GameWindow {
 
         for sprite in &self.sprites {
             if sprite.visible {
-                window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos), 0);
+                window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos) * Transform::scale(sprite.scale), sprite.z);
             }
         }
 
-        window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos), 0);
+        window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 0);
 
         Ok(())
     }
@@ -170,5 +195,5 @@ fn main() {
     //settings.vsync = true;
     settings.multisampling = Some(4);
 
-    run::<GameWindow>("Your life is currency", Vector::new(800, 600), settings);
+    run::<GameWindow>("Your life is currency", Vector::new(WIDTH, HEIGHT), settings);
 }

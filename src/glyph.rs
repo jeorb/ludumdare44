@@ -4,8 +4,8 @@ extern crate usvg;
 use std::collections::HashMap;
 use quicksilver::{
     Result,
-    geom::{Transform, Scalar},
-    graphics::{Background, Background::Col, Color, Drawable, GpuTriangle, Mesh, ShapeRenderer, Vertex},
+    geom::{Scalar, Transform, Vector},
+    graphics::{Background, Color, Drawable, GpuTriangle, Mesh, ShapeRenderer, Vertex},
     lyon::{
         tessellation::{FillOptions, FillTessellator},
     },
@@ -22,6 +22,20 @@ pub struct Glyph {
     pub mesh: Mesh,
 }
 
+impl Glyph {
+    fn new(mesh: Mesh) -> Glyph {
+        let mut centered = Mesh::new();
+        centered.vertices.extend(mesh.vertices.iter()
+            .map(|v| Vertex{pos: Vector{ x: v.pos.x - 50.0, y: v.pos.y - 50.0 }, col: v.col, tex_pos: v.tex_pos}));
+        centered.triangles.extend(mesh.triangles.iter()
+            .map(|t| GpuTriangle{
+                z:t.z,
+                indices:t.indices,
+                image: t.image.clone()}));
+        Glyph{mesh: centered}
+    }
+}
+
 impl Drawable for Glyph {
 
     fn draw<'a>(&self, dest: &mut Mesh, background: Background<'a>, transform: Transform, z: impl Scalar){
@@ -30,7 +44,7 @@ impl Drawable for Glyph {
             .map(|v| Vertex{pos: transform * v.pos, col: v.col, tex_pos: v.tex_pos}));
         dest.triangles.extend(self.mesh.triangles.iter()
             .map(|t| GpuTriangle{
-                z:t.z,
+                z:t.z + z.float(),
                 indices:[t.indices[0]+offset, t.indices[1]+offset, t.indices[2]+offset],
                 image: t.image.clone()}));
     }
@@ -110,8 +124,8 @@ impl GlyphSet {
                             .unwrap();
                         }
                     }
-                    //println!("Found {} {}", key, mesh.vertices.len());
-                    self.glyphs.insert(key, Glyph{ mesh: mesh });
+                    println!("Found {} {}", key, mesh.vertices.len());
+                    self.glyphs.insert(key, Glyph::new(mesh));
                 }
             }
         }
