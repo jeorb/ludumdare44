@@ -85,8 +85,8 @@ impl State for GameWindow {
 
         match window.keyboard()[Key::Tab] {
             ButtonState::Pressed => {
-                println!("View:          {:?}", window.view());
-                println!("Screen Size:   {:?}", window.screen_size());
+                //println!("View:          {:?}", window.view());
+                //println!("Screen Size:   {:?}", window.screen_size());
             },
             _ => ()
         }

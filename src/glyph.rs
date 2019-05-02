@@ -124,7 +124,7 @@ impl GlyphSet {
                             .unwrap();
                         }
                     }
-                    println!("Found {} {}", key, mesh.vertices.len());
+                    //println!("Found {} {}", key, mesh.vertices.len());
                     self.glyphs.insert(key, Glyph::new(mesh));
                 }
             }
