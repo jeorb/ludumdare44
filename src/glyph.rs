@@ -19,11 +19,12 @@ pub const ID_PREFIX: &str = "glyph_";
 
 
 pub struct Glyph {
+    pub name: String,
     pub mesh: Mesh,
 }
 
 impl Glyph {
-    fn new(mesh: Mesh) -> Glyph {
+    fn new(name: String, mesh: Mesh) -> Glyph {
         let mut centered = Mesh::new();
         centered.vertices.extend(mesh.vertices.iter()
             .map(|v| Vertex{pos: Vector{ x: v.pos.x - 50.0, y: v.pos.y - 50.0 }, col: v.col, tex_pos: v.tex_pos}));
@@ -32,7 +33,7 @@ impl Glyph {
                 z:t.z,
                 indices:t.indices,
                 image: t.image.clone()}));
-        Glyph{mesh: centered}
+        Glyph{name: name, mesh: centered}
     }
 }
 
@@ -60,7 +61,7 @@ impl Clone for Glyph {
                 z:t.z,
                 indices:t.indices,
                 image: t.image.clone()}));
-        Glyph{ mesh: mesh }
+        Glyph{ name: self.name.clone(), mesh: mesh }
     }
 }
 
@@ -71,7 +72,7 @@ pub struct GlyphSet {
 impl GlyphSet {
     pub fn new() -> Result<GlyphSet> {
         let mut glyphs: HashMap<String, Glyph> = HashMap::new();
-        glyphs.insert(MISSING.to_owned(), Glyph{ mesh: Mesh::new() });
+        glyphs.insert(MISSING.to_owned(), Glyph::new(MISSING.to_owned(), Mesh::new()));
         Ok(GlyphSet{
             glyphs: glyphs,
         })
@@ -125,7 +126,7 @@ impl GlyphSet {
                         }
                     }
                     //println!("Found {} {}", key, mesh.vertices.len());
-                    self.glyphs.insert(key, Glyph::new(mesh));
+                    self.glyphs.insert(key.to_owned(), Glyph::new(key, mesh));
                 }
             }
         }

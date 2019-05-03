@@ -3,11 +3,13 @@ extern crate usvg;
 mod path_convert;
 mod glyph;
 mod input;
+mod sprite;
 
 use glyph::{Glyph, GlyphSet};
+use sprite::Sprite;
 use quicksilver::{
     Result,
-    geom::{Transform, Vector},
+    geom::{Scalar, Shape, Transform, Vector},
     graphics::{Background::Col, Color, ResizeStrategy},
     input::{Key, ButtonState },
     lifecycle::{Settings, State, Window, run},
@@ -30,17 +32,6 @@ struct GameWindow {
     scale: Vector,
 }
 
-struct Sprite {
-    pos: Vector,
-    speed: Vector,
-    visible: bool,
-    use_ttl: bool,
-    ttl: usize,
-    glyph: String,
-    scale: Vector,
-    z: f32,
-}
-
 impl State for GameWindow {
     fn new() -> Result<GameWindow> {
         let mut glyphs = GlyphSet::new().unwrap();
@@ -48,16 +39,15 @@ impl State for GameWindow {
 
         let mut sprites = Vec::new();
 
-        sprites.push(Sprite{
-                pos: Vector{ x: -1000.0, y: -1000.0 },
-                speed: Vector{ x: 0.0, y: 0.0 },
-                visible: false,
-                use_ttl: false,
-                ttl: 1,
-                glyph: "cursor".to_owned(),
-                scale: Vector{x: 1.0, y: 1.0},
-                z: 10.0,
-            });
+        {
+            let mut cursor = Sprite::new(
+                "cursor".to_owned(),
+                Vector{ x: -1000.0, y: -1000.0 }
+            );
+            cursor.visible = false;
+            cursor.z = 10.0;
+            sprites.push(cursor);
+        }
 
         Ok(GameWindow{
             pos: Vector{x: WIDTH/2.0, y: HEIGHT/2.0},
@@ -116,7 +106,7 @@ impl State for GameWindow {
         if mouse != self.mouse_pos {
             self.mouse_pos = mouse;
             self.mouse_cooldown = 60;
-            self.sprites[0].pos = Vector{ x: mouse.x, y: mouse.y };
+            self.sprites[0].move_to(Vector{ x: mouse.x, y: mouse.y });
             self.sprites[0].visible = true;
         } else {
             if self.mouse_cooldown > 0 {
@@ -130,7 +120,7 @@ impl State for GameWindow {
 
         for sprite in &mut self.sprites {
             sprite.ttl -= 1;
-            sprite.pos += sprite.speed;
+            sprite.move_by(sprite.speed);
         }
 
 
@@ -139,15 +129,14 @@ impl State for GameWindow {
         } else if input.shoot {
             self.scale *= 0.99;
             self.cooldown = 6;
-            self.sprites.push(Sprite{
-                pos: Vector{ x: self.pos.x, y: self.pos.y - 50.0 },
-                speed: Vector{ x: self.speed.x, y: self.speed.y - 20.0 },
-                visible: true,
-                use_ttl: true,
-                ttl: 60,
-                glyph: glyph::COIN.to_owned(),
-                scale: self.scale,
-                z: 1.0,
+            self.sprites.push({
+                let mut sprite = Sprite::new(glyph::COIN.to_owned(), Vector{ x: self.pos.x, y: self.pos.y - 50.0 });
+                sprite.speed = Vector{ x: self.speed.x, y: self.speed.y - 20.0 };
+                sprite.use_ttl = true;
+                sprite.ttl = 60;
+                sprite.scale = self.scale;
+                sprite.z = 1.0;
+                sprite
             });
         } else {
             if self.scale.y < 1.0 {
@@ -163,7 +152,12 @@ impl State for GameWindow {
 
         for sprite in &self.sprites {
             if sprite.visible {
-                window.draw_ex(self.glyphs.get(&sprite.glyph), Col(FG_COLOR), Transform::translate(sprite.pos) * Transform::scale(sprite.scale), sprite.z);
+                window.draw_ex(
+                    self.glyphs.get(&sprite.glyph),
+                    Col(FG_COLOR),
+                    Transform::translate(sprite.bounds.center()) * Transform::scale(sprite.scale),
+                    sprite.z
+                );
             }
         }
 
