@@ -30,6 +30,8 @@ struct GameWindow {
     mouse_pos: Vector,
     mouse_cooldown: usize,
     scale: Vector,
+    frame: usize,
+    show_fps: bool,
 }
 
 impl State for GameWindow {
@@ -49,6 +51,41 @@ impl State for GameWindow {
             sprites.push(cursor);
         }
 
+        /* 2mark
+        for x in 0..100 {
+            for y in 0..100 {
+                let mut sprite = Sprite::new(
+                    "2".to_owned(),
+                    Vector{ x: (x*5) as f32, y: (y*5) as f32 }
+                );
+                sprite.z = -10.0;
+                sprite.scale = Vector { x: 0.1, y: 0.1 };
+                sprites.push(sprite);
+            }
+        }*/
+
+        {
+            let mut sprite = Sprite::new(
+                "2".to_owned(),
+                Vector{ x: 300.0, y: 300.0 }
+            );
+            sprite.z = 10.0;
+            sprite.scale = Vector { x: 2.0, y: 2.0 };
+            sprites.push(sprite);
+        }
+
+    /*
+        glyphs.push();
+        {
+            let mut sprite = Sprite::new(
+                "2".to_owned(),
+                Vector{ x: 500.0, y: 500.0 }
+            );
+            sprite.z = 10.0;
+            sprite.glyph = Glyph::from_text("01234 56789".to_owned(), 50.0, Col(FG_COLOR), glyphs);
+            sprites.push(sprite);
+        }*/
+
         Ok(GameWindow{
             pos: Vector{x: WIDTH/2.0, y: HEIGHT/2.0},
             speed: Vector{x: 0.0, y: 0.0},
@@ -59,6 +96,8 @@ impl State for GameWindow {
             mouse_pos: Vector{ x: 0.0, y: 0.0 },
             mouse_cooldown: 0,
             scale: Vector{x: 1.0, y: 1.0},
+            frame: 0,
+            show_fps: false,
         })
     }
 
@@ -72,11 +111,17 @@ impl State for GameWindow {
                 self.speed.y = 0.0;
             }
         }
-
         match window.keyboard()[Key::Tab] {
             ButtonState::Pressed => {
                 //println!("View:          {:?}", window.view());
                 //println!("Screen Size:   {:?}", window.screen_size());
+            },
+            _ => ()
+        }
+
+        match window.keyboard()[Key::F] {
+            ButtonState::Pressed => {
+                self.show_fps = if self.show_fps { false } else { true };
             },
             _ => ()
         }
@@ -162,6 +207,15 @@ impl State for GameWindow {
         }
 
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 0);
+
+        window.draw_ex(&Glyph::from_text("01234 56789".to_owned(), 50.0, Col(FG_COLOR), &self.glyphs), Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 0);
+
+        if(self.show_fps){
+            self.frame += 1;
+            if self.frame % 60 == 0 {
+                println!("{}", window.average_fps());
+            }
+        }
 
         Ok(())
     }

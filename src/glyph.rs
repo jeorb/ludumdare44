@@ -24,7 +24,7 @@ pub struct Glyph {
 }
 
 impl Glyph {
-    fn new(name: String, mesh: Mesh) -> Glyph {
+    pub fn new(name: String, mesh: Mesh) -> Glyph {
         let mut centered = Mesh::new();
         centered.vertices.extend(mesh.vertices.iter()
             .map(|v| Vertex{pos: Vector{ x: v.pos.x - 50.0, y: v.pos.y - 50.0 }, col: v.col, tex_pos: v.tex_pos}));
@@ -35,7 +35,27 @@ impl Glyph {
                 image: t.image.clone()}));
         Glyph{name: name, mesh: centered}
     }
+
+    pub fn from_text(text: String, size: f32, background: Background, glyphs: &GlyphSet) -> Glyph {
+        let mut mesh = Mesh::new();
+        let mut x = 0.0;
+        let scale = size/100.0;
+        let width = 100.0*scale;
+        for c in text.chars() {
+            let transform = 
+                Transform::scale(Vector{x:scale, y:scale}) * 
+                Transform::translate(Vector{x:x, y:0.0});
+            let glyph = glyphs.get(&c.to_string());
+            glyph.draw(&mut mesh, background, transform, 0.0);
+            x += width;
+        }
+
+        Glyph{name: text, mesh: mesh}
+    }
+
 }
+
+
 
 impl Drawable for Glyph {
 
