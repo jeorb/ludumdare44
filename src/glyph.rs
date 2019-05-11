@@ -39,13 +39,25 @@ impl Glyph {
     pub fn from_text(text: String, size: f32, background: Background, glyphs: &GlyphSet) -> Glyph {
         let mut mesh = Mesh::new();
         let mut x = 0.0;
+        let mut y = 0.0;
         let scale = size/100.0;
-        let width = 100.0*scale;
+        let width = 80.0*scale;
+        let height = 100.0*scale;
         for c in text.chars() {
+            let name = match c {
+                ' '  => "space".to_string(),
+                '.'  => "period".to_string(),
+                '\n' => {
+                            x = 0.0;
+                            y += height;
+                            continue;
+                        },
+                _    => c.to_string()
+            };
             let transform = 
-                Transform::scale(Vector{x:scale, y:scale}) * 
-                Transform::translate(Vector{x:x, y:0.0});
-            let glyph = glyphs.get(&c.to_string());
+                Transform::translate(Vector{x:x, y:y}) *
+                Transform::scale(Vector{x:scale, y:scale});
+            let glyph = glyphs.get(&name);
             glyph.draw(&mut mesh, background, transform, 0.0);
             x += width;
         }

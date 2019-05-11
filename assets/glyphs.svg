@@ -25,9 +25,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.880904"
-     inkscape:cx="506.58037"
-     inkscape:cy="952.66557"
+     inkscape:zoom="0.940452"
+     inkscape:cx="810.28443"
+     inkscape:cy="545.56565"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="true"
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -114,7 +114,7 @@
        rx="5" />
     <g
        id="glyph_0"
-       transform="translate(0,100)"
+       transform="translate(0,400)"
        inkscape:label="#0">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -151,7 +151,7 @@
     </g>
     <g
        id="glyph_1"
-       transform="translate(100,100)"
+       transform="translate(100,400)"
        inkscape:label="#1">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -219,7 +219,7 @@
     </g>
     <g
        inkscape:label="#2"
-       transform="translate(200,100)"
+       transform="translate(200,400)"
        id="glyph_2">
       <rect
          y="0"
@@ -243,7 +243,7 @@
          sodipodi:role="line"
          id="tspan1163"
          x="219.04507"
-         y="-132.58415">0123456789</tspan></text>
+         y="-132.58415">A0123456789</tspan></text>
     <g
        transform="translate(189.89994,71.140453)"
        aria-label="0123456789"
@@ -251,7 +251,7 @@
        id="text1169" />
     <g
        id="glyph_3"
-       transform="translate(300,100)"
+       transform="translate(300,400)"
        inkscape:label="#2">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -268,7 +268,7 @@
     </g>
     <g
        inkscape:label="#2"
-       transform="translate(400,100)"
+       transform="translate(400,400)"
        id="glyph_4">
       <rect
          y="0"
@@ -285,7 +285,7 @@
     </g>
     <g
        id="glyph_5"
-       transform="translate(500,100)"
+       transform="translate(500,400)"
        inkscape:label="#2">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -302,7 +302,7 @@
     </g>
     <g
        inkscape:label="#2"
-       transform="translate(600,100)"
+       transform="translate(600,400)"
        id="glyph_6">
       <rect
          y="0"
@@ -319,7 +319,7 @@
     </g>
     <g
        id="glyph_7"
-       transform="translate(700,100)"
+       transform="translate(700,400)"
        inkscape:label="#2">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -336,7 +336,7 @@
     </g>
     <g
        inkscape:label="#2"
-       transform="translate(800,100)"
+       transform="translate(800,400)"
        id="glyph_8">
       <rect
          y="0"
@@ -353,7 +353,7 @@
     </g>
     <g
        id="glyph_9"
-       transform="translate(900,100)"
+       transform="translate(900,400)"
        inkscape:label="#2">
       <rect
          style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -367,6 +367,477 @@
          d="M 45.369993,9.1635596 C 29.397333,10.23973 18.975453,23.38036 19.938353,37.42723 21.014523,53.17333 34.041863,64.16161 50.071163,63.02879 57.717643,62.51903 64.627803,58.1577 68.875853,53.0034 68.592643,66.20067 62.758663,77.812 49.901243,78.66161 43.727413,79.11473 38.686393,75.94286 35.967643,72.14793 34.721553,70.39208 32.682493,69.54247 30.303583,69.71239 27.584833,69.93895 25.375853,72.82762 25.545773,75.31981 25.602413,76.45262 25.942253,77.58543 26.565303,78.3784 31.266473,85.23192 39.875853,90.66942 50.637563,89.93309 71.877803,88.46043 81.506703,68.29637 80.147333,48.30223 78.731313,27.91161 67.006703,7.6908966 45.369993,9.1635596 Z M 45.936393,20.3784 C 54.432493,19.812 63.211783,26.26903 63.778193,34.8784 64.344603,43.3745 57.604363,51.30418 48.655143,51.92723 39.762563,52.49364 31.889523,45.64012 31.266473,37.25731 30.700063,28.19481 36.647333,21.05809 45.936393,20.3784 Z"
          id="path1189"
          inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#0"
+       transform="translate(0,500)"
+       id="glyph_A">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect882"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 44.807448,11.457194 C 34.383968,35.766074 23.895448,60.048784 13.512618,84.374024 11.721628,88.767804 17.045708,93.637203 21.226698,91.226873 24.478748,89.511544 24.975538,85.578624 26.550088,82.580914 29.029758,76.828084 31.509428,71.075254 33.989098,65.322424 44.750818,65.473464 55.512528,65.624504 66.274246,65.775544 69.642896,73.496454 72.868286,81.285684 76.327846,88.963244 78.547166,92.829883 84.879346,92.467803 86.444506,88.252134 87.834256,84.840124 85.236396,81.720654 84.173536,78.607764 74.525466,56.224244 64.877396,33.840714 55.229328,11.457194 53.232078,7.0471541 46.807658,7.0046241 44.807448,11.457194 Z M 50.018388,28.052884 C 53.794428,36.813304 57.570478,45.573724 61.346516,54.334134 53.851078,54.239734 46.355628,54.145334 38.860188,54.050934 42.579588,45.384924 46.298988,36.718904 50.018388,28.052884 Z"
+         id="path942"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#1"
+       transform="translate(100,500)"
+       id="glyph_B">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect888"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 19.374358,48.70775 C 19.412518,61.00204 19.374748,73.29833 19.460388,85.59138 19.707988,89.02071 23.217688,91.14284 26.431788,90.67603 36.285668,90.60242 46.145098,90.7492 55.995238,90.52683 64.894818,90.08966 74.292108,85.79101 78.214438,77.37696 82.746552,67.7369 81.347252,54.70933 72.735508,47.76042 70.939068,46.06728 75.539908,43.53 75.724358,40.98385 79.493712,32.37961 76.714258,21.32634 68.861138,15.96751 59.903478,9.5026504 48.379888,8.9200504 37.726288,9.3812804 33.070748,9.5388904 28.392078,9.4165404 23.751838,9.7599104 20.473788,10.39108 18.90796,13.85792 19.320548,16.92104 19.338058,27.51661 19.358978,38.11218 19.374358,48.70775 Z M 66.046238,33.3015 C 66.353628,37.57789 62.673548,40.89575 58.710828,41.59444 53.052258,42.73223 47.237508,42.23473 41.499488,42.47894 37.900488,42.53503 34.301488,42.59112 30.702488,42.6472 30.683608,35.37832 30.664728,28.10944 30.645848,20.84057 39.996478,20.88282 49.732278,19.49941 58.633398,23.09203 62.838548,24.72546 66.245288,28.60448 66.046238,33.3015 Z M 53.585298,79.29369 C 45.976578,79.27481 38.367848,79.25593 30.759128,79.23705 30.740248,70.81647 30.721368,62.3959 30.702488,53.97533 39.138388,53.91579 47.577018,53.5659 56.011108,53.71006 61.194928,53.85291 67.533968,55.89354 68.917778,61.55144 70.268168,67.29643 68.931518,74.80051 63.015958,77.4657 60.087488,78.866 56.793958,79.22619 53.585298,79.29369 Z"
+         id="path944"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_C"
+       transform="translate(200,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect894"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 82.249182,60.464932 C 77.697492,60.121462 76.534862,64.911632 74.462642,67.878282 66.945592,79.109862 50.940002,83.876322 38.744192,77.685152 27.657812,72.132812 22.721852,58.826502 23.803202,46.993952 24.491662,35.716992 31.362012,24.150432 42.595372,20.756032 55.112072,16.824322 69.890232,22.699522 76.067602,34.326742 77.143592,38.023042 82.084052,40.270572 85.279342,37.803702 88.616572,35.351152 87.612122,30.787322 85.371482,27.957072 77.813982,14.844522 62.411992,6.9569021 47.356122,8.3686321 34.499902,9.1764021 22.825422,17.606892 17.227482,29.084102 8.7218225,45.908592 11.316832,68.382282 25.045242,81.717342 37.322832,93.847578 58.011732,94.893978 72.212462,85.569532 78.972912,81.149342 84.622492,74.706322 87.495522,67.120202 88.381552,63.860802 85.520182,60.506422 82.249182,60.464932 Z"
+         id="path946"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(300,500)"
+       id="glyph_D">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect900"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 42.329922,9.2765727 C 35.495732,9.4130827 28.658032,9.4694427 21.826042,9.6563727 18.387242,9.9951527 16.384192,13.545533 16.833202,16.757533 16.724952,39.626813 16.527822,62.498103 16.475142,85.366124 16.733862,88.837184 20.241532,91.083184 23.529592,90.625464 35.052162,90.624334 46.921062,91.629384 57.946032,87.528374 68.785222,83.900174 77.981632,75.259083 81.394702,64.240523 86.723662,47.835003 81.978932,27.884933 68.005432,17.193033 60.744472,11.547553 51.439882,9.0886127 42.329922,9.2765727 Z M 73.425622,50.057823 C 73.620042,58.740143 70.393652,68.045653 62.791342,72.891073 53.112322,79.150264 41.176182,79.477814 30.016282,79.205874 28.541542,79.346534 27.226972,79.330394 27.783112,77.483044 27.893122,58.617993 28.003122,39.752943 28.113122,20.887903 39.682832,20.391123 52.211972,20.121863 62.351172,26.624653 70.270502,31.578503 73.592032,41.076553 73.425622,50.057823 Z"
+         id="path948"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_E"
+       transform="translate(400,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect906"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 20.038453,14.816547 C 20.114213,38.397877 20.115323,61.981227 20.237763,85.5613 20.505983,89.01454 24.069273,91.07088 27.286183,90.60005 43.149593,90.56235 59.014993,90.60112 74.877153,90.51568 79.208603,90.27277 81.603143,84.498427 78.666653,81.283507 76.338943,78.361737 72.417533,79.416107 69.194423,79.223627 56.641783,79.240277 44.089143,79.256927 31.536503,79.273577 31.517623,71.287247 31.498743,63.300917 31.479863,55.314597 44.362793,55.389597 57.247493,55.547977 70.129313,55.570967 74.051933,55.332737 76.595713,50.676607 74.599653,47.255197 73.376523,44.387547 70.114093,43.963057 67.377453,44.139907 55.392703,44.050997 43.407963,43.962097 31.423213,43.873187 31.404333,36.132297 31.385453,28.391417 31.366573,20.650537 45.869853,20.649497 60.375123,20.729217 74.877153,20.677787 79.208613,20.434887 81.603143,14.660537 78.666653,11.445617 76.338943,8.5273271 72.417533,9.5756871 69.194423,9.3731571 54.505023,9.3755771 39.813733,9.2997171 25.125533,9.3511271 22.377993,9.5782071 19.996773,12.022517 20.038453,14.816547 Z"
+         id="path950"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(500,500)"
+       id="glyph_F">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect912"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 21.228026,14.647886 C 21.303776,38.436686 21.305096,62.227506 21.427336,86.015046 21.716686,90.556906 28.000096,92.692386 31.062256,89.371026 33.567746,86.915726 32.489196,83.242706 32.717126,80.127876 32.701226,70.875436 32.685336,61.622986 32.669436,52.370536 42.710546,52.257296 52.753696,52.211606 62.793516,52.056006 67.434446,51.772156 69.586566,45.206456 66.065676,42.192986 63.762036,39.940556 60.388306,41.015996 57.516126,40.803416 49.215006,40.883086 40.913896,40.962746 32.612786,41.042416 32.593906,34.170016 32.575026,27.297626 32.556146,20.425236 46.266456,20.387006 59.978756,20.424966 73.687826,20.339206 78.019276,20.096306 80.413796,14.321956 77.477326,11.107036 75.161646,8.194546 71.257286,9.235296 68.046976,9.046606 54.136586,9.082316 40.224296,9.043436 26.315106,9.125846 23.542106,9.352696 21.178196,11.839866 21.228026,14.647886 Z"
+         id="path952"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_G"
+       transform="translate(600,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect918"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 14.078207,51.320955 C 13.857017,64.396365 20.190037,77.641605 31.341187,84.745985 43.316857,92.695385 58.841267,92.993135 72.279657,89.049475 76.563587,87.254155 83.265027,87.162655 84.582737,81.750795 84.682657,71.821125 84.453207,61.878625 84.425857,51.943995 84.525887,48.315795 80.834257,45.808645 77.444367,46.336575 70.044937,46.356025 62.643537,46.297585 55.245357,46.365965 50.670827,46.608435 48.403267,52.929265 51.822097,56.000885 54.430257,58.554955 58.268747,57.404075 61.531227,57.664705 65.386727,57.664705 69.242237,57.664705 73.097737,57.664705 73.154377,64.102855 73.211017,70.541005 73.267657,76.979155 62.240227,80.469465 49.417137,82.183065 38.931827,76.150985 28.862037,70.605465 24.025197,58.377445 25.520677,47.269655 26.882087,34.080755 37.421147,22.160665 50.722577,20.263015 60.127147,18.844935 69.874027,21.588595 77.661727,26.910615 81.631037,29.216995 87.066797,25.067325 85.717087,20.635015 84.575787,17.019985 80.605977,15.682185 77.671397,13.822255 65.745367,7.6245353 50.875767,6.5149053 38.499167,12.061035 23.440057,18.799115 13.971197,35.017265 14.078207,51.320955 Z"
+         id="path954"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(700,500)"
+       id="glyph_H">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect924"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 17.437335,13.350665 C 17.510225,37.778065 17.514525,62.207525 17.636645,86.633639 17.967895,91.395959 24.773145,93.319059 27.656105,89.582089 29.700465,87.021449 28.688645,83.595345 28.924615,80.584785 28.909325,72.786685 28.894035,64.988595 28.878745,57.190505 42.982265,57.171625 57.085775,57.152745 71.189295,57.133865 71.208755,66.947565 71.150285,76.763315 71.218685,86.575729 71.579265,91.313939 78.392805,93.096519 81.219835,89.388649 83.283885,86.845059 82.276745,83.419015 82.521735,80.414855 82.518625,58.060615 82.598325,35.704175 82.543415,13.351335 82.162635,8.5693355 75.329825,6.6920755 72.426385,10.435735 70.506125,12.792195 71.486305,15.986325 71.237275,18.775775 71.221285,27.748005 71.205285,36.720235 71.189295,45.692455 57.066895,45.711335 42.944505,45.730225 28.822105,45.749105 28.781995,34.937895 28.825455,24.124355 28.732885,13.314615 28.304535,8.5638255 21.368655,6.7006555 18.524575,10.497175 17.850795,11.286705 17.429615,12.305175 17.437335,13.350665 Z"
+         id="path956"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_I"
+       transform="translate(800,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect930"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 50.014894,91.086635 C 53.487144,91.192375 56.147904,87.756595 55.678154,84.426925 55.640494,60.941355 55.678404,37.453915 55.593484,13.969505 55.398754,9.373485 48.831744,7.100095 45.880124,10.649875 43.562444,13.070705 44.484414,16.537635 44.298164,19.543375 44.335144,41.695185 44.295024,63.848985 44.380214,85.999555 44.620804,88.811115 47.190154,91.138245 50.014894,91.086635 Z"
+         id="path958"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(900,500)"
+       id="glyph_J">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect936"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 32.070483,65.162985 C 28.504253,65.155245 26.009993,68.959265 26.751993,72.302525 27.255483,81.562528 34.831993,89.570358 43.894883,91.090798 52.455883,92.679058 62.222193,89.842918 67.230133,82.375298 73.116883,73.915505 73.599203,63.267105 73.318443,53.315295 73.126923,40.011595 72.993843,26.705965 72.765713,13.403465 72.447093,8.890545 66.188563,6.785755 63.152033,10.108315 60.614863,12.508905 61.715363,16.141255 61.535643,19.216345 61.674643,32.848295 61.988123,46.479925 62.011313,60.112095 61.760933,66.275125 61.045793,73.393265 56.068343,77.691215 51.115353,81.721158 42.509543,81.023008 39.251233,75.161205 37.342123,72.625675 38.908773,68.872275 36.339773,66.713535 35.194073,65.653815 33.613673,65.155845 32.070483,65.162985 Z"
+         id="path960"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_K"
+       transform="translate(1000,500)"
+       inkscape:label="#0">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1099"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 19.020769,83.844646 C 18.430269,87.879126 21.746829,92.438412 26.135329,90.947056 30.203519,90.175696 30.772609,85.719996 30.392259,82.315346 30.460299,74.159156 30.507999,66.002806 30.575459,57.846596 32.633399,56.090746 34.691349,54.334886 36.749289,52.579026 48.247339,64.907796 59.745379,77.236576 71.243429,89.565346 74.686519,92.998282 81.570639,90.013096 81.015819,85.060536 80.406199,82.045626 77.568279,80.284336 75.746179,77.992266 65.598129,67.085636 55.450069,56.179006 45.302019,45.272386 55.979599,36.355076 66.736039,27.526076 77.364269,18.553496 80.911589,15.183506 77.478449,8.5703657 72.735219,9.2186357 69.611309,9.7964057 67.631159,12.577846 65.161879,14.355516 53.651959,24.000326 42.142029,33.645146 30.632099,43.289956 30.500049,33.271726 30.722169,23.232826 30.400779,13.227516 29.637209,8.7678857 23.217059,7.1336157 20.446939,10.728466 18.433769,13.327916 19.431759,16.767746 19.185019,19.803026 19.126549,41.150076 19.231009,62.498536 19.020769,83.844646 Z"
+         id="path962"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_L"
+       transform="translate(1100,500)"
+       inkscape:label="#1">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1103"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 25.804175,91.510507 C 42.195475,91.453647 58.588675,91.471207 74.978775,91.367837 79.310278,91.124967 81.704778,85.350597 78.768278,82.135667 76.418778,79.195627 72.466475,80.277367 69.220175,80.082637 56.636175,80.115887 44.052175,80.149137 31.468175,80.182377 31.392475,57.926207 31.391175,35.667967 31.268875,13.413087 30.947275,8.8935574 24.687775,6.8043674 21.633975,10.096697 19.110975,12.551017 20.216275,16.236967 19.982775,19.356147 20.054275,41.727207 20.051175,64.100297 20.169475,86.470097 20.420575,89.268127 23.000375,91.559427 25.804175,91.510507 Z"
+         id="path964"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(1200,500)"
+       id="glyph_M">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1107"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 15.982145,91.008844 C 19.695145,91.125924 22.196945,87.356954 21.641645,83.911484 21.586545,67.510344 21.531445,51.109204 21.476345,34.708064 29.970945,48.516124 38.326645,62.417194 46.908445,76.166904 49.500645,79.629084 55.189545,78.450854 56.696245,74.572004 63.968645,61.359544 71.241045,48.147084 78.513445,34.934624 78.533045,52.005614 78.474345,69.078594 78.542845,86.148334 78.785245,90.722874 85.106145,92.990414 88.177745,89.571594 90.738445,86.957094 89.577545,83.105154 89.841545,79.835244 89.819845,57.923654 89.884945,36.009764 89.808945,14.099614 89.490845,9.3032239 82.296045,7.1088139 79.601645,11.272344 70.026145,27.919054 60.653445,44.690874 51.156045,61.385804 40.919045,44.653714 30.632445,27.951144 20.426445,11.200554 18.005445,7.5048539 11.689845,8.1144339 10.459745,12.526184 9.8195455,15.346494 10.301245,18.343654 10.163145,21.248744 10.233945,42.806174 10.230145,64.365584 10.347545,85.921774 10.588145,88.733294 13.157445,91.060454 15.982145,91.008844 Z"
+         id="path966"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_N"
+       transform="translate(1300,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1111"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 17.865101,14.400516 C 17.884701,38.299266 17.826001,62.200086 17.894501,86.097546 18.216101,90.617086 24.475601,92.706266 27.529401,89.413946 30.054001,86.951316 28.948101,83.245846 29.193201,80.115346 29.193201,63.685666 29.193201,47.255976 29.193201,30.826296 43.581601,50.318746 57.880001,69.882066 72.324601,89.330196 75.462101,93.116836 82.504801,90.314396 82.095801,85.389096 82.094801,61.597666 82.173401,37.804166 82.122801,14.014026 81.801201,9.4945069 75.541701,7.4052969 72.487901,10.697637 69.963301,13.160276 71.069201,16.865736 70.824101,19.996226 70.824101,36.369266 70.824101,52.742316 70.824101,69.115356 56.569501,49.763146 42.315001,30.410936 28.060401,11.058727 25.061601,6.8927469 17.746901,9.2131969 17.865101,14.400516 Z"
+         id="path968"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(1400,500)"
+       id="glyph_O">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1115"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 49.896095,8.140806 C 35.664795,7.916176 22.109195,16.581816 15.545495,29.074146 5.9030948,46.532626 9.5406948,70.894346 25.372695,83.541556 40.531895,95.830076 64.951795,94.383606 78.302395,80.035016 92.904495,64.967346 93.480995,39.177036 80.413595,22.973046 73.187295,13.683276 61.689195,8.011606 49.896095,8.140806 Z M 50.122595,19.638856 C 62.512595,19.458556 73.391195,28.996816 76.898095,40.534676 79.980295,49.495336 78.957895,59.911526 73.219895,67.604276 66.709195,77.148746 54.200195,82.841296 42.839995,79.452176 29.191495,75.780966 19.793695,61.216986 21.788195,47.266796 22.912495,34.945166 31.619295,22.949516 44.082395,20.299846 46.062795,19.854656 48.093195,19.638386 50.122595,19.638856 Z"
+         id="path970"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_P"
+       transform="translate(1500,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1119"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 29.168582,91.07437 C 32.563982,91.22221 35.333082,87.96742 34.830482,84.65811 34.812282,76.69595 34.794182,68.73379 34.775982,60.77164 44.651582,60.49356 54.996482,60.96794 64.022282,56.23721 71.337782,52.73084 75.971482,45.03834 76.475582,37.04558 77.422982,29.11026 74.995682,20.38039 68.437382,15.38672 61.222882,9.6260603 51.647282,8.6640603 42.729782,8.9715703 37.933182,9.0309703 33.131982,8.9741603 28.338282,9.1073803 24.908882,9.5181103 22.929882,13.10361 23.393982,16.31467 23.450082,39.5884 23.430382,62.8642 23.533882,86.13664 23.792382,88.9187 26.403182,91.12529 29.168582,91.07437 Z M 65.305282,33.64078 C 65.538382,38.77218 63.271682,44.35201 58.332682,46.52033 51.164282,49.80268 43.099282,48.9289 35.428582,49.3146 34.086682,49.49294 35.077482,47.27736 34.770282,46.39393 34.753282,37.70603 34.736382,29.01813 34.719382,20.33024 41.120282,20.48445 47.583182,19.88695 53.922282,20.98756 59.057282,21.81756 64.309382,25.21215 65.054282,30.73599 65.230582,31.6934 65.305182,32.66785 65.305282,33.64078 Z"
+         id="path972"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(1600,500)"
+       id="glyph_Q">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1123"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 85.796036,96.361242 C 79.823336,96.567582 73.827636,98.420932 67.872836,96.854852 65.447136,96.389072 58.965336,94.210842 59.890336,92.847282 75.354236,89.878282 87.188336,76.291792 90.201631,61.153222 93.991331,44.276022 88.601036,24.676262 74.075336,14.416642 57.710936,2.637722 32.537836,5.075542 19.433936,20.700082 4.1381361,38.285252 4.9983361,68.143082 22.507536,83.937552 28.582836,89.424422 36.484036,92.765262 44.618336,93.529212 49.812436,103.60616 61.672636,107.49185 72.295036,108.12859 77.569836,108.10196 83.246136,109.06091 88.152136,106.67105 92.657531,104.2888 90.749631,96.608482 85.796036,96.361242 Z M 20.772636,51.048742 C 20.568536,37.661002 28.308136,23.408272 41.585536,19.237842 52.923436,15.518062 66.659136,19.558522 73.168636,29.826142 80.682036,41.435902 80.920136,57.301522 74.284536,69.354732 69.177636,78.848882 58.135636,84.249642 47.504336,83.125132 36.152936,82.567292 26.186936,74.155092 22.798436,63.459232 21.419936,59.477932 20.772236,55.257502 20.772636,51.048742 Z"
+         id="path974"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_R"
+       transform="translate(1700,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1127"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 80.445857,85.979901 C 80.213057,81.010511 74.302957,79.672531 72.013157,75.80816 66.764357,69.81649 64.361857,62.00381 59.545457,55.7338 67.748057,52.68104 74.764257,45.288 75.374957,36.27348 76.282757,27.70237 72.145057,18.79376 64.650857,14.38788 56.245357,9.0686999 46.051857,8.4956599 36.386657,8.7367599 32.299557,8.8259999 28.190857,8.6136599 24.118457,8.9082699 20.915357,9.4944199 19.194457,12.84074 19.617357,15.88002 19.691857,39.03752 19.692157,62.19687 19.813157,85.353211 19.933357,89.515851 25.127857,92.501511 28.584157,89.865311 31.581857,88.040211 31.110657,84.367211 31.104357,81.377901 31.087957,73.4718 31.071657,65.56569 31.055257,57.65959 37.437157,57.82921 44.659757,57.04036 49.764357,61.65889 54.891757,66.57637 56.434457,73.92102 61.050357,79.244071 63.868357,83.028791 67.503057,86.113021 71.194457,88.972671 73.278657,92.535511 78.658557,91.853121 79.999857,88.072061 80.287957,87.414601 80.446657,86.698611 80.445857,85.979901 Z M 41.873657,20.05022 C 48.855257,20.1386 56.785657,21.17961 61.681557,26.70461 66.126157,31.84719 64.686757,40.94715 58.320657,43.86051 50.350957,47.89556 41.186257,46.82038 32.542757,47.10902 30.710757,47.71383 30.999857,46.16653 31.045757,44.86593 31.011157,36.59403 30.976557,28.32212 30.941957,20.05022 34.585857,20.05022 38.229757,20.05022 41.873657,20.05022 Z"
+         id="path976"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(1800,500)"
+       id="glyph_S">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1131"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 52.568941,9.5328416 C 41.774441,9.6509216 30.067241,13.602372 23.723341,22.809662 18.482941,30.415602 19.591741,41.818792 26.842041,47.777002 35.007241,54.899112 46.332741,55.264112 56.473541,57.129252 61.931841,58.317912 68.168141,59.192952 72.060441,63.609842 75.725541,68.307542 72.483641,75.144972 67.757041,77.733352 59.798641,82.397612 49.558841,82.937822 41.041641,79.483092 36.131841,77.476982 32.011841,73.579822 30.000141,68.643972 27.811241,64.757832 21.489541,65.161122 19.937641,69.355072 18.463241,73.042902 21.380741,76.528092 23.244841,79.472582 32.295041,91.680222 49.460341,95.543172 63.637741,91.459962 72.981441,88.947692 82.472641,82.522972 84.564041,72.506532 86.391641,64.971542 83.113941,56.670012 76.612841,52.431032 67.111541,45.874822 55.054341,46.556652 44.285341,43.752012 39.437541,42.440632 33.316441,40.544852 31.960641,35.030192 30.988741,29.116722 36.427241,24.819802 41.409941,22.992292 50.218741,19.542432 61.556141,19.868692 68.403441,27.097622 71.083941,30.228332 72.846341,36.347182 78.207341,34.652082 81.814241,33.656162 83.298641,29.010682 81.236941,25.969642 76.011041,15.431822 64.055141,9.4657216 52.568941,9.5328416 Z"
+         id="path978"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_T"
+       transform="translate(1900,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1135"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 15.967964,14.990178 C 15.852664,18.646979 19.548464,21.194829 22.968264,20.644689 30.131564,20.591229 37.294864,20.537779 44.458164,20.484319 44.384364,42.347329 44.224264,64.212369 44.204364,86.074129 44.493664,90.615979 50.777164,92.751469 53.839264,89.430109 56.349464,86.955409 55.269664,83.254349 55.526264,80.119409 55.612964,60.222169 55.699564,40.324919 55.786264,20.427679 63.511564,20.371359 71.238764,20.384999 78.962864,20.284999 83.537364,20.042559 85.804964,13.721708 82.386164,10.650088 79.790364,8.094418 75.975264,9.253568 72.727764,9.019568 55.503764,9.140108 38.277764,9.192318 21.054964,9.355498 18.243464,9.596088 15.916364,12.165458 15.967964,14.990178 Z"
+         id="path980"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_U"
+       transform="translate(2000,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1139"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 16.684561,13.493316 C 16.868461,28.205856 16.880061,42.922756 17.180261,57.632426 17.719961,68.888216 21.759461,81.045652 31.705361,87.368712 40.621861,92.962532 51.992061,93.172172 61.893861,90.405232 71.444461,87.769712 78.788461,79.639252 81.326361,70.179806 84.177661,60.744806 83.065061,50.816226 83.255561,41.114046 83.210661,31.680856 83.243061,22.245466 83.150061,12.813656 82.803561,8.0717056 75.992761,6.0318356 73.126961,9.8521356 71.075661,12.478396 72.107061,15.954786 71.867561,19.022756 71.854861,32.039226 72.037361,45.058766 71.893061,58.073176 71.625361,65.828186 68.759261,74.499596 61.396661,78.233116 54.922661,81.387132 47.021861,81.737112 40.278061,79.227136 32.934761,76.363746 29.550861,68.294056 28.808661,60.945986 28.111661,52.787406 28.424661,44.580236 28.234461,36.397936 28.138261,28.549706 28.123061,20.698766 27.975761,12.852266 27.841861,7.7058356 20.068461,6.1408256 17.625461,10.492466 17.039561,11.377356 16.684061,12.427126 16.684561,13.493316 Z"
+         id="path982"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(2100,500)"
+       id="glyph_V">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1143"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 13.060304,12.878256 C 13.266604,16.271256 15.350604,19.171536 16.518404,22.306326 26.505004,44.840716 36.491704,67.375106 46.478304,89.909506 48.281704,94.85389 56.023504,94.03841 57.150304,89.048296 66.969704,64.066326 76.894404,39.121686 86.647904,14.116386 88.117204,10.018746 83.766204,5.623456 79.667004,7.040726 75.780104,8.021686 75.411504,12.400306 73.938504,15.466736 66.389904,34.711326 58.841304,53.955916 51.292704,73.200516 42.027804,52.222626 32.885204,31.186526 23.543604,10.245136 20.738804,5.621026 13.284504,7.502476 13.060304,12.878256 Z"
+         id="path984"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_W"
+       transform="translate(2200,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1147"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 44.877099,12.302081 C 38.684399,30.955721 32.491699,49.609361 26.298999,68.263011 21.169799,50.092141 16.044498,31.913071 10.913298,13.747271 9.8652984,9.497541 3.7640984,7.918891 1.5052984,12.063691 -1.3006013,16.279311 1.5010984,21.009101 2.4687984,25.326821 8.4108984,46.039271 14.352998,66.751731 20.295099,87.464181 21.610599,92.182171 29.278799,92.729721 31.430699,88.602121 37.649899,71.155101 43.868999,53.708081 50.088099,36.261061 56.183399,53.643721 62.140499,71.079621 68.322399,88.428951 70.736399,93.146241 78.510099,91.733741 79.097199,86.471301 85.896099,63.349611 92.725299,40.236481 99.505199,17.109451 100.6632,12.944931 96.727399,7.129261 92.114499,9.255881 88.266999,11.465391 88.316099,16.359131 86.904299,20.091511 82.278699,36.035391 77.653099,51.979281 73.027499,67.923161 67.110599,49.207651 61.344899,30.438531 55.333299,11.756581 53.293899,7.306081 46.442499,7.683691 44.877099,12.302081 Z"
+         id="path986"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(2300,500)"
+       id="glyph_X">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1151"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 75.40304,8.9352236 C 71.31484,9.0561636 69.65584,13.150994 67.37004,15.850954 61.55164,23.608854 55.73314,31.366764 49.91474,39.124674 42.71444,29.633794 35.58744,20.084064 28.34124,10.630024 25.57884,7.4361236 19.83044,8.6467436 18.73504,12.749854 17.52804,16.483474 20.87444,19.188904 22.74174,21.959364 29.42054,30.815254 36.09924,39.671134 42.77804,48.527024 34.31684,59.804804 25.82604,71.061064 17.38334,82.352314 14.85914,85.886784 17.72924,91.369524 22.10424,91.177414 26.18144,91.003764 27.84544,86.912684 30.14394,84.210094 36.73424,75.449854 43.32444,66.689614 49.91474,57.929364 57.85894,68.406344 65.71914,78.951064 73.71584,89.385594 76.48264,92.563344 82.21104,91.341264 83.30354,87.249504 84.51124,83.515284 81.16354,80.810854 79.29324,78.042574 71.86044,68.204054 64.42764,58.365544 56.99484,48.527024 64.70124,38.250984 72.43394,27.994134 80.12394,17.706124 82.62194,14.095964 79.81904,8.8221636 75.40304,8.9352236 Z"
+         id="path988"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="glyph_Y"
+       transform="translate(2400,500)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1155"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 19.427571,13.495775 C 19.501171,16.504365 21.794471,18.775835 23.068771,21.360275 30.143471,33.352055 37.218071,45.343835 44.292771,57.335615 44.183371,67.168625 43.970671,77.003545 43.925671,86.835375 44.247271,91.354908 50.506771,93.444118 53.560571,90.151778 56.055971,87.701978 55.009071,84.013475 55.300071,80.896855 55.406971,73.288545 55.513971,65.680245 55.620871,58.071935 63.761471,44.173845 72.025171,30.341305 80.088771,16.402145 81.869871,12.739175 78.450271,8.1143349 74.425571,8.6813149 70.589871,8.7927249 69.255971,12.661065 67.583471,15.418065 61.783471,25.539015 55.983371,35.659965 50.183371,45.780925 43.301471,33.980715 36.513771,22.122045 29.572871,10.358525 26.792771,6.2325549 19.422771,8.5931149 19.427571,13.495775 Z"
+         id="path990"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(2500,500)"
+       id="glyph_Z">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1159"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:medium;line-height:1.25;font-family:Manjari;-inkscape-font-specification:'Manjari Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+         d="M 79.569997,90.703509 C 83.468997,91.254179 87.165897,87.142432 85.328697,83.371212 84.336197,80.256962 80.918597,79.414802 78.023097,79.717542 62.358397,79.735662 46.693697,79.753772 31.028997,79.771882 49.459897,59.149072 67.947897,38.574482 86.343197,17.921542 89.052197,14.333442 85.941897,8.612442 81.443497,8.970712 60.108397,8.954222 38.770497,8.852112 17.437197,8.889102 13.125197,9.570322 10.943197,15.582102 14.242097,18.663732 16.815697,21.249102 20.650697,20.096002 23.896897,20.349702 39.056197,20.332882 54.215397,20.316042 69.374697,20.299222 50.943697,40.922042 32.455797,61.496582 14.060397,82.149572 11.356797,85.738032 14.426097,91.504849 18.960197,91.098549 39.163497,90.966879 59.366697,90.835199 79.569997,90.703509 Z"
+         id="path992"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:label="#2"
+       transform="translate(1000,400)"
+       id="glyph_space">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="rect1553"
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+    </g>
+    <g
+       id="glyph_period"
+       transform="translate(1100,400)"
+       inkscape:label="#2">
+      <rect
+         style="fill:#1e1e1e;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1559"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <path
+         d="M 49.972135,89.999435 C 54.082375,90.046109 58.067815,87.196731 59.223755,83.229718 60.217725,80.055276 59.216215,76.407025 56.801615,74.133898 54.106765,71.463942 49.803155,70.608473 46.301995,72.083297 42.983825,73.389394 40.504265,76.692686 40.407095,80.289243 40.215775,83.866563 42.388025,87.351963 45.569995,88.934402 46.925875,89.630788 48.447505,90.001236 49.972135,89.999435 Z"
+         id="path1567"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff" />
     </g>
   </g>
 </svg>

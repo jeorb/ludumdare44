@@ -208,7 +208,9 @@ impl State for GameWindow {
 
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 0);
 
-        window.draw_ex(&Glyph::from_text("01234 56789".to_owned(), 50.0, Col(FG_COLOR), &self.glyphs), Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 0);
+        window.draw_ex(
+            &Glyph::from_text("HELLO WORLD\n0.0123456789\nABCDEFGHIJKLMNOPQRSTUVWXYZ".to_owned(), 20.0, Col(FG_COLOR),
+            &self.glyphs), Col(FG_COLOR), Transform::translate(Vector{x:self.pos.x, y:self.pos.y+100.0}) * Transform::scale(self.scale), 0);
 
         if(self.show_fps){
             self.frame += 1;
