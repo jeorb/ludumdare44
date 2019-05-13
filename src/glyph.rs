@@ -47,6 +47,13 @@ impl Glyph {
             let name = match c {
                 ' '  => "space".to_string(),
                 '.'  => "period".to_string(),
+                '!'  => "exclamation_point".to_string(),
+                ','  => "comma".to_string(),
+                ';'  => "semicolon".to_string(),
+                ':'  => "colon".to_string(),
+                '\'' => "single_quote".to_string(),
+                '"'  => "double_quote".to_string(),
+                '&'  => "ampersand".to_string(),
                 '\n' => {
                             x = 0.0;
                             y += height;
@@ -115,6 +122,10 @@ impl GlyphSet {
             Some(glyph) => glyph,
             None => self.glyphs.get(MISSING).unwrap(),
         }
+    }
+
+    pub fn insert(&mut self, key: &str, glyph: Glyph) -> Option<Glyph>{
+        self.glyphs.insert(key.to_owned(), glyph)
     }
 
     pub fn load_from_svg_bytes(&mut self, bytes: &[u8]){

@@ -14,7 +14,7 @@ pub struct Sprite {
 }
 
 impl Sprite {
-    pub fn new(glyph: String, pos: Vector) -> Sprite {
+    pub fn new(glyph: &str, pos: Vector) -> Sprite {
         // TODO: Calculate from the glyph's mesh
         let size = Vector{ x: 100.0, y: 100.0 };
         Sprite{
@@ -26,7 +26,7 @@ impl Sprite {
             visible: true,
             use_ttl: false,
             ttl: 1,
-            glyph: glyph,
+            glyph: glyph.to_owned(),
             scale: Vector{x: 1.0, y: 1.0},
             z: 0.0,
         }
