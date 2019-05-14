@@ -10,7 +10,7 @@ pub struct Input {
     pub quit: bool,
 }
 
-pub fn get_input(window: &Window) -> Input {
+pub fn get_input(window: &Window, mouse_pressed: bool) -> Input {
     let mut x = 0.0;
     let mut y = 0.0;
     let mut shoot = false;
@@ -38,6 +38,15 @@ pub fn get_input(window: &Window) -> Input {
     if window.keyboard()[Key::Q].is_down() || window.keyboard()[Key::Escape].is_down() {
         quit = true;
     }
+
+    let mouse = window.mouse().pos();
+    let size = window.screen_size();
+    if mouse_pressed {
+        x = 1.0 + (mouse.x*2.0 - size.x*2.0)/size.x;
+        y = 1.0 + (mouse.y*2.0 - size.y*2.0)/size.y;
+    }
+
+
     Input {
         x: x,
         y: y,

@@ -13,8 +13,8 @@ use quicksilver::{
     Result,
     geom::{Scalar, Shape, Transform, Vector},
     graphics::{Background::Col, Color, ResizeStrategy},
-    input::{Key, ButtonState },
-    lifecycle::{Settings, State, Window, run},
+    input::{Key, ButtonState,},
+    lifecycle::{Event, Settings, State, Window, run},
 };
 
 const BG_COLOR: Color = Color{ r: 0.2, g: 0.1, b: 0.2, a: 1.0};
@@ -29,9 +29,9 @@ struct GameWindow {
     pos: Vector,
     speed: Vector,
     cooldown: usize,
-    flower_cooldown: usize,
     mouse_pos: Vector,
     mouse_cooldown: usize,
+    mouse_pressed: bool,
     scale: Vector,
     frame: usize,
     show_fps: bool,
@@ -74,13 +74,29 @@ impl State for GameWindow {
             glyphs: glyphs,
             sprites: sprites,
             cooldown: 0,
-            flower_cooldown: 0,
             mouse_pos: Vector{ x: 0.0, y: 0.0 },
             mouse_cooldown: 0,
+            mouse_pressed: false,
             scale: Vector{x: 1.0, y: 1.0},
             frame: 0,
             show_fps: true,
         })
+    }
+
+    fn event(&mut self, event: &Event, window: &mut Window) -> Result<()> {
+        match event {
+            Event::MouseButton(_button, state) => {
+                match state {
+                    ButtonState::Pressed => self.mouse_pressed = true,
+                    ButtonState::Held => self.mouse_pressed = true,
+                    ButtonState::Released => self.mouse_pressed = false,
+                    _ => {},
+                }
+            }
+            _ => {}
+        };
+
+        Ok(())
     }
 
     fn update(&mut self, window: &mut Window) -> Result<()> {
@@ -108,7 +124,7 @@ impl State for GameWindow {
             _ => ()
         }
 
-        let input = input::get_input(&window);
+        let mut input = input::get_input(&window, self.mouse_pressed);
 
         self.speed.x += 2.5 * input.x;
         self.speed.y += 2.5 * input.y;
@@ -129,70 +145,11 @@ impl State for GameWindow {
             self.pos.y = HEIGHT;
         }
 
-        /*
-        let mouse = window.mouse().pos();
-        if mouse != self.mouse_pos {
-            self.mouse_pos = mouse;
-            self.mouse_cooldown = 60;
-            self.sprites[0].move_to(Vector{ x: mouse.x, y: mouse.y });
-            self.sprites[0].visible = true;
-        } else {
-            if self.mouse_cooldown > 0 {
-                self.mouse_cooldown -= 1;
-            } else {
-                self.sprites[0].visible = false;
-            }
-        }
-        */
-
         self.sprites.retain(|s| (!s.use_ttl) || s.ttl > 0);
 
         for sprite in &mut self.sprites {
             sprite.ttl -= 1;
             sprite.move_by(sprite.speed);
-        }
-
-        if self.flower_cooldown > 0 {
-            self.flower_cooldown -= 1;
-        } else {
-            let mut rng = rand::thread_rng();
-            self.flower_cooldown = 20;
-            self.sprites.push({
-                let mut sprite = Sprite::new("flower", Vector{ x: rng.gen_range(0.0, WIDTH), y: -100.0 });
-                sprite.speed = Vector{ x: rng.gen_range(-5.0, 5.0), y: rng.gen_range(1.0, 5.0) };
-                sprite.use_ttl = true;
-                sprite.ttl = 600;
-                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
-                sprite.z = 1.0;
-                sprite
-            });
-            /*self.sprites.push({
-                let mut sprite = Sprite::new("flower", Vector{ x: rng.gen_range(0.0, WIDTH), y: HEIGHT+100.0 });
-                sprite.speed = Vector{ x: rng.gen_range(-5.0, 5.0), y: rng.gen_range(-5.0, 5.0) };
-                sprite.use_ttl = true;
-                sprite.ttl = 600;
-                sprite.scale = self.scale;
-                sprite.z = 1.0;
-                sprite
-            });*/
-            self.sprites.push({
-                let mut sprite = Sprite::new("flower", Vector{ x: -100.0, y: rng.gen_range(0.0, HEIGHT) });
-                sprite.speed = Vector{ x: rng.gen_range(1.0, 5.0), y: rng.gen_range(1.0, 5.0) };
-                sprite.use_ttl = true;
-                sprite.ttl = 600;
-                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
-                sprite.z = 1.0;
-                sprite
-            });
-            self.sprites.push({
-                let mut sprite = Sprite::new("flower", Vector{ x: WIDTH+100.0, y: rng.gen_range(0.0, HEIGHT) });
-                sprite.speed = Vector{ x: rng.gen_range(-5.0, -1.0), y: rng.gen_range(1.0, 5.0) };
-                sprite.use_ttl = true;
-                sprite.ttl = 600;
-                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
-                sprite.z = 1.0;
-                sprite
-            });
         }
 
         if self.cooldown > 0 {
@@ -215,9 +172,28 @@ impl State for GameWindow {
             }
         }
 
+        let mouse = window.mouse().pos();
+        if mouse != self.mouse_pos {
+            self.mouse_pos = mouse;
+            self.mouse_cooldown = 60;
+            self.sprites[0].move_to(Vector{ x: mouse.x, y: mouse.y });
+            self.sprites[0].visible = true;
+        } else {
+            if self.mouse_cooldown > 0 {
+                self.mouse_cooldown -= 1;
+            } else {
+                self.sprites[0].visible = false;
+            }
+        }
+        //if self.mouse_pressed {
+        //    input.x = 1.0 + (mouse.x*2.0 - WIDTH*2.0)/WIDTH;
+        //    input.y = 1.0 + (mouse.y*2.0 - HEIGHT*2.0)/HEIGHT;
+        //}
+
+
         if self.show_fps {
             if self.frame % 60 == 0 {
-                self.glyphs.insert("fps", Glyph::from_text(format!("FPS: {:.1}", window.average_fps()), 12.0, Col(FG_COLOR), &self.glyphs));
+                self.glyphs.insert("fps", Glyph::from_text(format!("fps: {:.0}/{:.0}", window.current_fps(), window.average_fps()), 12.0, Col(FG_COLOR), &self.glyphs));
                 self.sprites.push({
                     let mut sprite = Sprite::new("fps", Vector{ x: 10.0, y: 10.0 });
                     sprite.use_ttl = true;
@@ -250,7 +226,7 @@ impl State for GameWindow {
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 10);
 
         window.draw_ex(
-            &Glyph::from_text("Hello, World!\n0.0123456789.,'\";:&\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz".to_owned(), 10.0, Col(FG_COLOR),
+            &Glyph::from_text("Hello, World!\n0.0123456789.,'\";:&!/\\|[]{}\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz".to_owned(), 10.0, Col(FG_COLOR),
             &self.glyphs), Col(FG_COLOR), Transform::translate(Vector{x:self.pos.x, y:self.pos.y+100.0}) * Transform::scale(self.scale), 0);
 
         Ok(())
