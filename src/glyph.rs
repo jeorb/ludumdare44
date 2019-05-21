@@ -85,7 +85,7 @@ impl Glyph {
 
 impl Drawable for Glyph {
 
-    fn draw<'a>(&self, dest: &mut Mesh, background: Background<'a>, transform: Transform, z: impl Scalar){
+    fn draw<'a>(&self, dest: &mut Mesh, _bg: Background<'a>, transform: Transform, z: impl Scalar){
         let offset = dest.vertices.len() as u32;
         dest.vertices.extend(self.mesh.vertices.iter()
             .map(|v| Vertex{pos: transform * v.pos, col: v.col, tex_pos: v.tex_pos}));

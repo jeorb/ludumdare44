@@ -1,6 +1,7 @@
 use quicksilver::{
     input::Key,
     lifecycle::Window,
+    geom::{Vector},
 };
 
 pub struct Input {
@@ -10,7 +11,7 @@ pub struct Input {
     pub quit: bool,
 }
 
-pub fn get_input(window: &Window, mouse_pressed: bool) -> Input {
+pub fn get_input(window: &Window, mouse_pressed: bool, position: Vector) -> Input {
     let mut x = 0.0;
     let mut y = 0.0;
     let mut shoot = false;
@@ -39,11 +40,17 @@ pub fn get_input(window: &Window, mouse_pressed: bool) -> Input {
         quit = true;
     }
 
-    let mouse = window.mouse().pos();
-    let size = window.screen_size();
     if mouse_pressed {
-        x = 1.0 + (mouse.x*2.0 - size.x*2.0)/size.x;
-        y = 1.0 + (mouse.y*2.0 - size.y*2.0)/size.y;
+        let mouse = window.mouse().pos();
+        let size = window.screen_size();
+        shoot = true;
+        // Screen As Joystick
+        // x = 1.0 + (mouse.x*2.0 - size.x*2.0)/size.x;
+        // y = 1.0 + (mouse.y*2.0 - size.y*2.0)/size.y;
+
+        // Converge on Cursor
+        x = (mouse.x - position.x) / size.x;
+        y = (mouse.y - position.y) / size.y;
     }
 
 

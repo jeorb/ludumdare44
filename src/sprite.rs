@@ -1,5 +1,5 @@
 
-use quicksilver::geom::{Circle, Line, Rectangle, Shape, Triangle, Vector, about_equal};
+use quicksilver::geom::{Rectangle, Shape, Vector};
 
 #[derive(Clone)]
 pub struct Sprite {

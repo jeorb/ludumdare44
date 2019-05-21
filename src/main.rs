@@ -11,7 +11,7 @@ use glyph::{Glyph, GlyphSet};
 use sprite::Sprite;
 use quicksilver::{
     Result,
-    geom::{Scalar, Shape, Transform, Vector},
+    geom::{Shape, Transform, Vector},
     graphics::{Background::Col, Color, ResizeStrategy},
     input::{Key, ButtonState,},
     lifecycle::{Event, Settings, State, Window, run},
@@ -28,6 +28,7 @@ struct GameWindow {
     hero: Glyph,
     pos: Vector,
     speed: Vector,
+    triangle_cooldown: usize,
     cooldown: usize,
     mouse_pos: Vector,
     mouse_cooldown: usize,
@@ -35,6 +36,8 @@ struct GameWindow {
     scale: Vector,
     frame: usize,
     show_fps: bool,
+    tri_count: usize,
+    tri_count_max: usize,
 }
 
 impl State for GameWindow {
@@ -54,19 +57,6 @@ impl State for GameWindow {
             sprites.push(cursor);
         }
 
-        /* 2mark
-        for x in 0..100 {
-            for y in 0..100 {
-                let mut sprite = Sprite::new(
-                    "2".to_owned(),
-                    Vector{ x: (x*5) as f32, y: (y*5) as f32 }
-                );
-                sprite.z = -10.0;
-                sprite.scale = Vector { x: 0.1, y: 0.1 };
-                sprites.push(sprite);
-            }
-        }*/
-
         Ok(GameWindow{
             pos: Vector{x: WIDTH/2.0 - 350.0, y: HEIGHT/2.0 - 50.0},
             speed: Vector{x: 0.0, y: 0.0},
@@ -74,16 +64,19 @@ impl State for GameWindow {
             glyphs: glyphs,
             sprites: sprites,
             cooldown: 0,
+            triangle_cooldown: 0,
             mouse_pos: Vector{ x: 0.0, y: 0.0 },
             mouse_cooldown: 0,
             mouse_pressed: false,
             scale: Vector{x: 1.0, y: 1.0},
             frame: 0,
             show_fps: true,
+            tri_count: 0,
+            tri_count_max: 0,
         })
     }
 
-    fn event(&mut self, event: &Event, window: &mut Window) -> Result<()> {
+    fn event(&mut self, event: &Event, _w: &mut Window) -> Result<()> {
         match event {
             Event::MouseButton(_button, state) => {
                 match state {
@@ -124,7 +117,7 @@ impl State for GameWindow {
             _ => ()
         }
 
-        let mut input = input::get_input(&window, self.mouse_pressed);
+        let input = input::get_input(&window, self.mouse_pressed, self.pos);
 
         self.speed.x += 2.5 * input.x;
         self.speed.y += 2.5 * input.y;
@@ -150,6 +143,40 @@ impl State for GameWindow {
         for sprite in &mut self.sprites {
             sprite.ttl -= 1;
             sprite.move_by(sprite.speed);
+        }
+
+        if self.triangle_cooldown > 0 {
+            self.triangle_cooldown -= 1;
+        } else {
+            let mut rng = rand::thread_rng();
+            self.triangle_cooldown = 1;
+            self.sprites.push({
+                let mut sprite = Sprite::new("triangle", Vector{ x: rng.gen_range(0.0, WIDTH), y: -100.0 });
+                sprite.speed = Vector{ x: rng.gen_range(-5.0, 5.0), y: rng.gen_range(1.0, 5.0) };
+                sprite.use_ttl = true;
+                sprite.ttl = 600;
+                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
+                sprite.z = 1.0;
+                sprite
+            });
+            self.sprites.push({
+                let mut sprite = Sprite::new("triangle", Vector{ x: -100.0, y: rng.gen_range(0.0, HEIGHT) });
+                sprite.speed = Vector{ x: rng.gen_range(1.0, 5.0), y: rng.gen_range(1.0, 5.0) };
+                sprite.use_ttl = true;
+                sprite.ttl = 600;
+                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
+                sprite.z = 1.0;
+                sprite
+            });
+            self.sprites.push({
+                let mut sprite = Sprite::new("triangle", Vector{ x: WIDTH+100.0, y: rng.gen_range(0.0, HEIGHT) });
+                sprite.speed = Vector{ x: rng.gen_range(-5.0, -1.0), y: rng.gen_range(1.0, 5.0) };
+                sprite.use_ttl = true;
+                sprite.ttl = 600;
+                sprite.scale = Vector{x:1.0, y:1.0} * rng.gen_range(0.2, 1.0);
+                sprite.z = 1.0;
+                sprite
+            });
         }
 
         if self.cooldown > 0 {
@@ -185,15 +212,16 @@ impl State for GameWindow {
                 self.sprites[0].visible = false;
             }
         }
-        //if self.mouse_pressed {
-        //    input.x = 1.0 + (mouse.x*2.0 - WIDTH*2.0)/WIDTH;
-        //    input.y = 1.0 + (mouse.y*2.0 - HEIGHT*2.0)/HEIGHT;
-        //}
-
 
         if self.show_fps {
             if self.frame % 60 == 0 {
-                self.glyphs.insert("fps", Glyph::from_text(format!("fps: {:.0}/{:.0}", window.current_fps(), window.average_fps()), 12.0, Col(FG_COLOR), &self.glyphs));
+                self.glyphs.insert("fps", Glyph::from_text(format!(
+                    "fps: {:.0} / {:.0}\ntri: {} / {}",
+                    window.current_fps(),
+                    window.average_fps(),
+                    self.tri_count,
+                    self.tri_count_max
+                ), 12.0, Col(FG_COLOR), &self.glyphs));
                 self.sprites.push({
                     let mut sprite = Sprite::new("fps", Vector{ x: 10.0, y: 10.0 });
                     sprite.use_ttl = true;
@@ -225,9 +253,10 @@ impl State for GameWindow {
 
         window.draw_ex(&self.hero, Col(FG_COLOR), Transform::translate(self.pos) * Transform::scale(self.scale), 10);
 
-        window.draw_ex(
-            &Glyph::from_text("Hello, World!\n0.0123456789.,'\";:&!/\\|[]{}\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz".to_owned(), 10.0, Col(FG_COLOR),
-            &self.glyphs), Col(FG_COLOR), Transform::translate(Vector{x:self.pos.x, y:self.pos.y+100.0}) * Transform::scale(self.scale), 0);
+        if self.show_fps {
+            self.tri_count = window.mesh().triangles.len();
+            self.tri_count_max = window.mesh().triangles.capacity();
+        }
 
         Ok(())
     }
@@ -247,6 +276,7 @@ fn main() {
     //println!("Starting game...");
     let mut settings = Settings::default();
     settings.resize = ResizeStrategy::Fill;
+    settings.show_cursor = false;
     
     if is_wasm(){
         settings.fullscreen = true;
@@ -255,5 +285,5 @@ fn main() {
     //settings.vsync = true;
     settings.multisampling = Some(4);
 
-    run::<GameWindow>("Happy Mother's Day!", Vector::new(WIDTH, HEIGHT), settings);
+    run::<GameWindow>("Your life is currency.", Vector::new(WIDTH, HEIGHT), settings);
 }
